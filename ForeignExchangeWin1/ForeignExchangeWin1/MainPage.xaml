@@ -5,10 +5,14 @@
              x:Class="ForeignExchangeWin1.MainPage">
 
     <StackLayout 
-        Padding="10,30,10,10">
+        Padding="20">
         <Label HorizontalOptions="Center"
                FontSize="Large"
                Text="Foreign Exchange">
+        </Label>
+        <Label HorizontalOptions="Center" 
+               FontSize="Medium"
+               Text="CODE BEHIND">
         </Label>
         <Label Text="Pesos:"></Label>
         <Entry

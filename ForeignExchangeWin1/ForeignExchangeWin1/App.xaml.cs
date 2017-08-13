@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
-
-namespace ForeignExchangeWin1
+﻿namespace ForeignExchangeWin1
 {
+    using Xamarin.Forms;
+    using Views;
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
 
-            MainPage = new ForeignExchangeWin1.MainPage();
+            MainPage = new ForeignExchangePage();
         }
 
         protected override void OnStart()

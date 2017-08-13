@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:ForeignExchangeWin1.Controls"
+             x:Class="ForeignExchangeWin1.Views.ForeignExchangePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="20,30,20,10">
+            <Label
+                HorizontalOptions="Center"
+                FontSize="Large"
+                Text="Foreign Exchange">
+            </Label>
+            <StackLayout
+            Orientation="Horizontal">
+                <Label
+                Text="Amount:"
+                VerticalOptions="Center"
+                WidthRequest="100">
+                </Label>
+                <Entry
+                    Keyboard="Numeric"
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="Enter amount..."
+                    Text="{Binding Amount, Mode=TwoWay}">
+                </Entry>
+            </StackLayout>
+            <StackLayout
+            Orientation="Horizontal">
+                <Label
+                Text="Sourse Rate:"
+                    VerticalOptions="Center"
+                    WidthRequest="100">
+                </Label>
+                <control:BindablePicker
+                        Title="Select sourceRate..."
+                        DisplayMemberPath="Name"
+                        SelectedValuePath="RateId"
+                        ItemsSource="{Binding Rates}"
+                        SelectedValue ="{Binding Path=SourceRateID, Mode=TwoWay}"
+                        HorizontalOptions="FillAndExpand">
+                </control:BindablePicker>
+            </StackLayout>
+            <StackLayout
+            Orientation="Horizontal">
+                <Label
+                Text="Target Rate:"
+                    WidthRequest="100">
+                </Label>
+                <control:BindablePicker
+                        Title="Select target rate..."
+                        DisplayMemberPath="Name"
+                        SelectedValuePath="RateId"
+                        ItemsSource="{Binding Rates}"
+                        SelectedValue ="{Binding Path=TargetRateID, Mode=TwoWay}"
+                        HorizontalOptions="FillAndExpand">
+                </control:BindablePicker>
+            </StackLayout>
+            <Button
+                Command="{Binding ConverterPlusCommand}"
+                Margin="30,10,30,10"
+                BackgroundColor="Navy"
+                BorderRadius="23"
+                FontAttributes="Bold"
+                IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                Text="Convert"
+                TextColor="White">
+            </Button>
+            <ActivityIndicator
+                IsRunning="{Binding IsRunning, Mode=TwoWay}">
+            </ActivityIndicator>
+            <Label
+                BackgroundColor="Silver"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                FontSize="Large"
+                Text="{Binding Result, Mode=TwoWay}"
+                TextColor="Fuchsia"
+                VerticalTextAlignment="Center"
+                VerticalOptions="FillAndExpand">
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
