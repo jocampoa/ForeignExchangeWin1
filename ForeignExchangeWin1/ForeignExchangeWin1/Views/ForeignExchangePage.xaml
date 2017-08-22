@@ -4,12 +4,18 @@
              xmlns:control="clr-namespace:ForeignExchangeWin1.Controls"
              x:Class="ForeignExchangeWin1.Views.ForeignExchangePage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,30,20,10"
+            Android="10" />
+    </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout
-            Padding="20,30,20,10">
+        <StackLayout>
             <Label
-                HorizontalOptions="Center"
+                FontAttributes="Bold"
                 FontSize="Large"
+                HorizontalOptions="Center"            
                 Text="Foreign Exchange">
             </Label>
             <StackLayout
